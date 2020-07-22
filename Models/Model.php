@@ -18,6 +18,5 @@ class Model extends MyDB {
 
         return $result;
     }
-
 }
 ?>
