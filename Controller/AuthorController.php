@@ -12,14 +12,16 @@ class AuthorController {
 
     public function index()
     {
-        //die(__METHOD__);
-        require_once 'Pages/authors.php';
+        die(__METHOD__);
+        require_once 'Views/authors.php';
     }
 
     public function show($id)
     {
-        die(__METHOD__ . ' ID: ' . ($id ?: 'null'));
-        require_once 'Pages/author.php';
+//        die(__METHOD__ . ' ID: ' . ($id ?: 'null'));
+        $title = 'Autor';
+        $author = $this->model->find($id, true);
+        require_once 'Views/author.php';
     }
 
     public function edit($id = null)
