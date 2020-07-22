@@ -12,11 +12,13 @@ class AuthorController {
 
     public function index()
     {
+        //die(__METHOD__);
         require_once 'Pages/authors.php';
     }
 
     public function show($id)
     {
+        die(__METHOD__ . ' ID: ' . ($id ?: 'null'));
         require_once 'Pages/author.php';
     }
 
