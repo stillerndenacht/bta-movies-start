@@ -4,6 +4,9 @@ require_once 'Models/Author.php';
 
 class AuthorController {
 
+    /**
+     * @var Author
+     */
     private $model;
 
     public function __construct() {
@@ -12,14 +15,14 @@ class AuthorController {
 
     public function index()
     {
-        die(__METHOD__);
+        $title      = 'Autoren';
+        $authors    = $this->model->all();
         require_once 'Views/authors.php';
     }
 
     public function show($id)
     {
-//        die(__METHOD__ . ' ID: ' . ($id ?: 'null'));
-        $title = 'Autor';
+        $title  = 'Autor';
         $author = $this->model->find($id, true);
         require_once 'Views/author.php';
     }

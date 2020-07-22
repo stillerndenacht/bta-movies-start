@@ -26,6 +26,11 @@ if(isset($_GET['controller'])) {
     if( $controller && isset($_GET['action'])) {
         // name einer controller funktion
         $action = $_GET['action'];
+/*        
+        if($action === 'index') {
+            $controller->index();
+        } 
+*/        
 
         if( method_exists($controller, $action) ) {
             // zusätzlich wurde auch ein GET parameter 'id' gesetzt
@@ -40,8 +45,6 @@ if(isset($_GET['controller'])) {
         }
     }
 } else {
-    // oder mach sonstwas
-    // @todo: gebe hier die start page als home-page aus
-    echo 'Keine gültige Aktion!';
+    require_once 'Views/home.php';
 }
 ?>
