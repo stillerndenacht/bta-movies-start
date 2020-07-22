@@ -51,7 +51,7 @@ class MyDB extends PDO {
     private function _prepareAndExecute($sql, $params = null) {
       $stmt = $this->prepare($sql);
       $stmt->execute($params);
-//      $this->_handleErrors($stmt);
+      $this->_handleErrors($stmt);
 
       return $stmt;
     }

@@ -6,7 +6,6 @@ $id         = null;
 $action     = null;
 // identifikator eines controllers
 $controller = null;
-$var = 10;
 
 // ein controller wurde als GET parameter gesetzt
 if(isset($_GET['controller'])) {
@@ -25,11 +24,17 @@ if(isset($_GET['controller'])) {
     if( $controller && isset($_GET['action'])) {
         // name einer controller funktion
         $action = $_GET['action'];
+/*        
+        if($action === 'index') {
+            $controller->index();
+        } 
+*/        
 
-        if(method_exists($controller, $action)) {
+        if( method_exists($controller, $action) ) {
             // zusätzlich wurde auch ein GET parameter 'id' gesetzt
             if (isset($_GET['id']) && (int) $_GET['id'] > 0 ) {
                 // führe eine eine controller funktion mit $id parameter aus
+                // z:B $controller->show(3);
                 $controller->$action( (int) $_GET['id']);
             } else {
                 // führe eine eine controller funktion ohne parameter aus
@@ -38,8 +43,6 @@ if(isset($_GET['controller'])) {
         }
     }
 } else {
-    // oder mach sonstwas
-    // @todo: gebe hier die start page aos home-page aus
-    echo 'Keine gültige Aktion!';
+    require_once 'Views/home.php';
 }
 ?>
