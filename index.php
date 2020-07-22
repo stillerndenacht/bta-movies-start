@@ -6,7 +6,7 @@ $id         = null;
 $action     = null;
 // identifikator eines controllers
 $controller = null;
-$var = 3;
+$var = 10;
 
 // ein controller wurde als GET parameter gesetzt
 if(isset($_GET['controller'])) {
