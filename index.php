@@ -42,4 +42,3 @@ if(isset($_GET['controller'])) {
     // @todo: gebe hier die start page aos home-page aus
     echo 'Keine gültige Aktion!';
 }
-?>
