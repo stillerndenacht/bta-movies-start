@@ -1,12 +1,16 @@
 <?php
 
+// initialisiere variablen
+$id         = null;
+// name einer controller funktion
+$action     = null;
+// identifikator eines controllers
 $controller = null;
-$action = null;
-$id = null;
 
-if(isset($_REQUEST['controller'])) {
-
-    switch($_REQUEST['controller']) {
+// ein controller wurde als GET parameter gesetzt
+if(isset($_GET['controller'])) {
+    // entscheide, was hier per controller geschehen soll
+    switch($_GET['controller']) {
         case 'authors':
             require_once 'Controller/AuthorController.php';
             $controller = new AuthorController;
@@ -16,19 +20,25 @@ if(isset($_REQUEST['controller'])) {
             break;
     }
 
-    if( $controller && isset($_REQUEST['action'])) {
-        $action = $_REQUEST['action'];
+    // ein aktion wurde als GET parameter gesetzt
+    if( $controller && isset($_GET['action'])) {
+        // name einer controller funktion
+        $action = $_GET['action'];
 
         if(method_exists($controller, $action)) {
-
-            if (isset($_REQUEST['id']) && (int) $_REQUEST['id'] > 0 ) {
-                $controller->$action( (int) $_REQUEST['id']);
+            // zusätzlich wurde auch ein GET parameter 'id' gesetzt
+            if (isset($_GET['id']) && (int) $_GET['id'] > 0 ) {
+                // führe eine eine controller funktion mit $id parameter aus
+                $controller->$action( (int) $_GET['id']);
             } else {
+                // führe eine eine controller funktion ohne parameter aus
                 $controller->$action();
             }
         }
     }
 } else {
+    // oder mach sonstwas
+    // @todo: gebe hier die start page aos home-page aus
     echo 'Keine gültige Aktion!';
 }
 ?>
