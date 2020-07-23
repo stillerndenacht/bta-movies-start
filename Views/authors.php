@@ -11,7 +11,7 @@
             <tr>
                 <td><?php echo $author['id']; ?></td>
                 <td><?php echo $author['firstname']; ?></td>
-                <td><?php echo $author['lastname']; ?></td>
+                <td><a href="/authors/<?php echo $author['id']; ?>"><?php echo $author['lastname']; ?></a></td>
             </tr>
         <?php endforeach; ?>
     </table>

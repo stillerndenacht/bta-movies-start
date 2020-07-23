@@ -18,7 +18,8 @@ if(isset($_GET['controller'])) {
             $controller = new AuthorController;
             break;
         case 'movies':
-            // @todo: implement movie logic 
+            require_once 'Controller/MovieController.php';
+            $controller = new MovieController;
             break;
     }
 
