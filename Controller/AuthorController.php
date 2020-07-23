@@ -3,7 +3,7 @@
 require_once 'Models/Author.php';
 
 class AuthorController {
-
+    
     private $model;
 
     public function __construct() {
@@ -12,7 +12,9 @@ class AuthorController {
 
     public function index()
     {
-        die(__METHOD__);
+        # die(__METHOD__);
+        $authors    = $this->model->all();
+        $title      = 'Autor';
         require_once 'Views/authors.php';
     }
 

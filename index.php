@@ -18,7 +18,8 @@ if(isset($_GET['controller'])) {
             $controller = new AuthorController;
             break;
         case 'movies':
-            // @todo: implement movie logic 
+            require_once 'Controller/AuthorController.php';
+            $controller = new AuthorController; 
             break;
     }
 
@@ -42,6 +43,6 @@ if(isset($_GET['controller'])) {
 } else {
     // oder mach sonstwas
     // @todo: gebe hier die start page als home-page aus
-    echo 'Keine gültige Aktion!';
+    require_once 'Views/home.php';
 }
 ?>
