@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // initialisiere variablen
 $id         = null;
@@ -20,6 +21,10 @@ if(isset($_GET['controller'])) {
         case 'movies':
             require_once 'Controller/MovieController.php';
             $controller = new MovieController;
+            break;
+        case 'user':
+            require_once 'Controller/UserController.php';
+            $controller = new UserController;
             break;
     }
 

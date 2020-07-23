@@ -29,7 +29,14 @@ class AuthorController {
 
     public function edit($id = null)
     {
-        die(__METHOD__ .' ID: ' . ($id ?: 'null') );
+        $title = 'Edit Autor';
+        if( $id ) {
+            // existierender author
+            $data = $this->model->find($id);
+        } else {
+            // neuer author
+        }
+        require_once 'Views/Forms/author.php';
     }
 
     public function store($id = null)
