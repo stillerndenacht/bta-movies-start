@@ -18,8 +18,13 @@ if(isset($_GET['controller'])) {
             $controller = new AuthorController;
             break;
         case 'movies':
+<<<<<<< HEAD
             require_once 'Controller/AuthorController.php';
             $controller = new AuthorController; 
+=======
+            require_once 'Controller/MovieController.php';
+            $controller = new MovieController;
+>>>>>>> master
             break;
     }
 
@@ -27,6 +32,11 @@ if(isset($_GET['controller'])) {
     if( $controller && isset($_GET['action'])) {
         // name einer controller funktion
         $action = $_GET['action'];
+/*        
+        if($action === 'index') {
+            $controller->index();
+        } 
+*/        
 
         if( method_exists($controller, $action) ) {
             // zusätzlich wurde auch ein GET parameter 'id' gesetzt
@@ -41,8 +51,11 @@ if(isset($_GET['controller'])) {
         }
     }
 } else {
+<<<<<<< HEAD
     // oder mach sonstwas
     // @todo: gebe hier die start page als home-page aus
+=======
+>>>>>>> master
     require_once 'Views/home.php';
 }
 ?>

@@ -13,3 +13,12 @@
 	ErrorLog "logs/error_bta-movies-start.log"
 </VirtualHost>
 ```
+
+#### Apache -> httpd.conf überprüfen
+
+In der zentralen Konfigurations-Datei des Apache-Servers 'httpd.conf' bitte überprüfen,
+ob dort die httpd-vhosts.conf inkludiert wird. Folgende Zeile muß dort eingetragen sein:
+```
+Include etc/extra/httpd-vhosts.conf
+```
+

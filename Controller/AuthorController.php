@@ -3,7 +3,14 @@
 require_once 'Models/Author.php';
 
 class AuthorController {
+<<<<<<< HEAD
     
+=======
+
+    /**
+     * @var Author
+     */
+>>>>>>> master
     private $model;
 
     public function __construct() {
@@ -12,16 +19,20 @@ class AuthorController {
 
     public function index()
     {
+<<<<<<< HEAD
         # die(__METHOD__);
         $authors    = $this->model->all();
         $title      = 'Autor';
+=======
+        $title      = 'Autoren';
+        $authors    = $this->model->all();
+>>>>>>> master
         require_once 'Views/authors.php';
     }
 
     public function show($id)
     {
-//        die(__METHOD__ . ' ID: ' . ($id ?: 'null'));
-        $title = 'Autor';
+        $title  = 'Autor';
         $author = $this->model->find($id, true);
         require_once 'Views/author.php';
     }
