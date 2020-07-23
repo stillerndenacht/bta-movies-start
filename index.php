@@ -18,13 +18,8 @@ if(isset($_GET['controller'])) {
             $controller = new AuthorController;
             break;
         case 'movies':
-<<<<<<< HEAD
-            require_once 'Controller/AuthorController.php';
-            $controller = new AuthorController; 
-=======
             require_once 'Controller/MovieController.php';
-            $controller = new MovieController;
->>>>>>> master
+            $controller = new MovieController; 
             break;
     }
 
@@ -51,11 +46,8 @@ if(isset($_GET['controller'])) {
         }
     }
 } else {
-<<<<<<< HEAD
     // oder mach sonstwas
     // @todo: gebe hier die start page als home-page aus
-=======
->>>>>>> master
     require_once 'Views/home.php';
 }
 ?>
