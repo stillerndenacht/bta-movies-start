@@ -3,14 +3,11 @@
 require_once 'Models/Author.php';
 
 class AuthorController {
-<<<<<<< HEAD
     
-=======
-
     /**
      * @var Author
      */
->>>>>>> master
+
     private $model;
 
     public function __construct() {
