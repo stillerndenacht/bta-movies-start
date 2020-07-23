@@ -4,8 +4,8 @@
     <table class="table table-striped">
         <tr>
             <th>ID</th>
-            <th>title</th>
-            <th>price</th>
+            <th>Title</th>
+            <th>Price</th>
         </tr>
         <?php foreach ($movies as $movie) : ?>
             <tr>
