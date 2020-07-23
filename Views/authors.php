@@ -6,6 +6,9 @@
             <th>ID</th>
             <th>Vorname</th>
             <th>Nachname</th>
+            <?php if (isset($_SESSION['auth'])) : ?>
+                <th colspan="2"><br></th> 
+            <?php endif; ?> 
         </tr>
         <?php foreach ($authors as $author) : ?>
             <tr>
