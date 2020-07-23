@@ -19,14 +19,11 @@ class AuthorController {
 
     public function index()
     {
-<<<<<<< HEAD
         # die(__METHOD__);
         $authors    = $this->model->all();
         $title      = 'Autor';
-=======
         $title      = 'Autoren';
         $authors    = $this->model->all();
->>>>>>> master
         require_once 'Views/authors.php';
     }
 
