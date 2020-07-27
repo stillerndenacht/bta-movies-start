@@ -2,7 +2,7 @@
 
 require_once 'Controller.php';
 require_once 'Models/Author.php';
-require_once 'Controller.php';
+
 
 class AuthorController extends Controller {
 

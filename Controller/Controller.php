@@ -1,12 +1,3 @@
-<?php 
-
-class Controller {
-
-   protected $model;
-
-}
-
-?>
 <?php
 
 class Controller {

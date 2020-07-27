@@ -1,15 +1,3 @@
-<?php 
-require_once 'Models/User.php';
-
-class UserController{
-
-    /**
-    * @var User
-    */
-
-    private $redirectTo = '/';
-
-    private $model;
 <?php
 
 require_once 'Models/User.php';
@@ -26,9 +14,7 @@ class UserController {
         $this->model = new User;
     }
 
-    public function login() 
-    {
-        $title = 'Login';
+
     public function login()
     {
         $title      = 'Login';
@@ -66,7 +52,3 @@ class UserController {
 }
 
 ?> 
-        header('location: ' . $this->redirectTo);
-    }
-}
-?>

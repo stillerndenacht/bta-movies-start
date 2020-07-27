@@ -1,23 +1,16 @@
 <?php
 
 require_once 'Models/Movie.php';
+require_once 'Controller.php';
 
-class MovieController /** extends Controller */ {
+class MovieController extends Controller {
 
-    /**
-     * @var Movie
-     */
-    private $model;
+    protected $listTitle = 'Movies';
+    protected $listView = 'Views/movies.php';
+
 
     public function __construct() {
         $this->model = new Movie;
-    }
-
-    public function index()
-    {
-        $title   = 'Movie';
-        $list    = $this->model->all();
-        require_once 'Views/movies.php';
     }
 
     public function show($id)
