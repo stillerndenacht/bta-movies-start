@@ -37,26 +37,22 @@ class AuthorController extends Controller {
         $firstname  = $_POST['firstname'];
         $lastname   = $_POST['lastname'];
         // todo: server-seitige validierung der form daten 
+        $params = [
+            'firstname' => $firstname,
+            'lastname'  => $lastname
+        ];
         if($id > 0 ) {
             // author existiert bereits
+            $params += ['id' => $id];
             $sql = "UPDATE authors SET firstname = :firstname, lastname = :lastname WHERE id = :id";
-            $params = [
-                'firstname' => $firstname,
-                'lastname'  => $lastname,
-                'id'        => $id, 
-            ];
-
         } else {
             // author muss neu angelegt werden
             $sql = "INSERT IGNORE INTO authors (firstname, lastname) VALUES (:firstname , :lastname)";
-            $params = [
-                'firstname' => $firstname,
-                'lastname'  => $lastname
-            ];
         }
 
         $stmt = $this->model->prepare($sql);
         $stmt->execute($params);
+        // todo: fehlerbehandlung
         // redirect zur listen ansicht
         header('location: /authors');
     }
