@@ -31,40 +31,40 @@ class AuthorController extends Controller {
 
         }
         $title = 'Edit Autor';
-        if( $id ) {
+        $data  = null;
+        if( $id > 0 ) {
             // existierender author
             $data = $this->model->find($id);
-        } else {
-            // neuer author
-        }
+        } 
         require_once 'Views/Forms/author.php';
     }
 
 
     public function store($id = null)
     {
-
+        // wir speichern unsere formular daten in variablen
         $firstname  = $_POST['firstname'];
         $lastname   = $_POST['lastname'];
-        
-        if($id > 0) {
-            $sql = 'UPDATE authors SET firstname = :firstname, lastname = :lastname 
-                WHERE id = :id';
-            $params = [
-                'firstname' => $firstname,
-                'lastname'  => $lastname,
-                'id'        => $id
-            ];
-            $stmt = $this->model->prepare($sql);
-            $stmt->execute($params);
-            header('location: /authors');
-        }else{
-            $params = [
-            'firstname'     => $firstname,
-            'lastname'      => $lastname,
-            ];
+        // todo: server-seitige validierung der form daten 
+        $params = [
+            'firstname' => $firstname,
+            'lastname'  => $lastname
+        ];
+        if($id > 0 ) {
+            // author existiert bereits
+            // füge den params die id als array element hinzu
+            $params += ['id' => $id];
+            $sql = "UPDATE authors SET firstname = :firstname, lastname = :lastname WHERE id = :id";
+        } else {
+            // author muss neu angelegt werden
+            $sql = "INSERT IGNORE INTO authors (firstname, lastname) VALUES (:firstname , :lastname)";
         }
 
+        $stmt = $this->model->prepare($sql);
+        $stmt->execute($params);
+        // todo: fehlerbehandlung
+        // redirect zur listen ansicht
+        header('location: /authors');
     }
 
     public function delete($id)
