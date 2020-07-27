@@ -43,6 +43,7 @@ class AuthorController extends Controller {
         ];
         if($id > 0 ) {
             // author existiert bereits
+            // füge den params die id als array element hinzu
             $params += ['id' => $id];
             $sql = "UPDATE authors SET firstname = :firstname, lastname = :lastname WHERE id = :id";
         } else {
