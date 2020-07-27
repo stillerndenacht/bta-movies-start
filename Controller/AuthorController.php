@@ -41,7 +41,7 @@ class AuthorController extends Controller {
             'firstname' => $firstname,
             'lastname'  => $lastname
         ];
-        if($id > 0 ) {
+        if( $id > 0 ) {
             // author existiert bereits
             // füge den params die id als array element hinzu
             $params += ['id' => $id];
@@ -60,7 +60,12 @@ class AuthorController extends Controller {
 
     public function delete($id)
     {
-        die(__METHOD__ . ' ID: ' . $id);
+//        die(__METHOD__ . ' ID: ' . $id);
+        $sql = "DELETE FROM authors WHERE id = ?";
+        $stmt = $this->model->prepare($sql);
+        $stmt->execute( [ $id ] );
+        // redirect zur listen ansicht
+        header('location: /authors');
     }
 }
 ?>
