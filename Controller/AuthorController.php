@@ -6,7 +6,7 @@ require_once 'Models/Author.php';
 class AuthorController extends Controller {
 
     protected $listTitle = 'Autoren';
-    protected $listView = 'Views/authors.php';
+//    protected $listView = 'Views/authors.php';
 
     public function __construct() {
         $this->model = new Author;
