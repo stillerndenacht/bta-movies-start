@@ -1,14 +1,9 @@
 <?php
 
 require_once 'Models/Author.php';
+require_once 'Controller.php';
 
-class AuthorController {
-    
-    /**
-     * @var Author
-     */
-
-    private $model;
+class AuthorController extends Controller {
 
     public function __construct() {
         $this->model = new Author;
@@ -17,8 +12,6 @@ class AuthorController {
     public function index()
     {
         # die(__METHOD__);
-        $authors    = $this->model->all();
-        $title      = 'Autor';
         $title      = 'Autoren';
         $authors    = $this->model->all();
         require_once 'Views/authors.php';
@@ -33,15 +26,15 @@ class AuthorController {
 
     public function edit($id = null)
     {
+        
         $title = 'Edit Author';
         if($id){
             $data = $this->model->find($id);
         } else{
 
         }
-        require_once 'Views/Forms/authors.php';
-        
     }
+
 
     public function store($id = null)
     {

@@ -2,7 +2,7 @@
 
 require_once 'Models/Movie.php';
 
-class MovieController {
+class MovieController /** extends Controller */ {
 
     /**
      * @var Movie
