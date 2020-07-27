@@ -1,6 +1,6 @@
 <?php require_once 'inc/html_header.php'; ?>
 
-<?php if (isset($author) && is_array($author)) : ?>
+<?php if (isset($item) && is_array($item)) : ?>
     <table class="table table-striped">
         <tr>
             <th>ID:</th>
