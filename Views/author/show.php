@@ -1,22 +1,22 @@
 <?php require_once 'inc/html_header.php'; ?>
 
-<?php if (isset($author) && is_array($author)) : ?>
+<?php if (isset($item) && is_array($item)) : ?>
     <table class="table table-striped">
         <tr>
             <th>ID:</th>
-            <td><?php echo $author['id']; ?></td>
+            <td><?php echo $item['id']; ?></td>
         </tr>
         <tr>
             <th>Vorname:</th>
-            <td><?php echo $author['firstname']; ?></td>
+            <td><?php echo $item['firstname']; ?></td>
         </tr>
         <tr>
             <th>Nachname:</th>
-            <td><?php echo $author['lastname']; ?></td>
+            <td><?php echo $item['lastname']; ?></td>
         </tr>
         <tr>
             <th>Anzahl Filme:</th>
-            <td><?php echo count($author['movies']); ?></td>
+            <td><?php echo count($item['movies']); ?></td>
         </tr>
     </table>
 <?php else : ?>

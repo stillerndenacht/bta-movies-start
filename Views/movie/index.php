@@ -1,6 +1,10 @@
 <?php require_once 'inc/html_header.php'; ?>
 
-<?php if (isset($list) && count($list) > 0): ?>
+<div>
+    <a href="/movies/edit" role="button" class="btn btn-primary mt-0 mb-3">Neuen Film anlegen</a>
+</div>
+
+<?php if (isset($list) && count($list) > 0) : ?>
     <table class="table table-striped">
         <tr>
             <th>ID</th>
@@ -15,7 +19,7 @@
             </tr>
         <?php endforeach; ?>
     </table>
-<?php else: ?>
+<?php else : ?>
     <h3>Keine Daten vorhanden</h3>
 <?php endif; ?>
 
