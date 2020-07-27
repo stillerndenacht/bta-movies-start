@@ -56,7 +56,7 @@ class MyDB extends PDO {
       return $stmt;
     }
 
-    private function _handleErrors($stmt) 
+    public function _handleErrors($stmt) 
     {
       $error = $stmt->errorInfo() ?: null;
       // gibt es fehler, dann gebe sie hier aus
