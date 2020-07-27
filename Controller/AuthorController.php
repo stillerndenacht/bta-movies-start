@@ -7,19 +7,20 @@ require_once 'Models/Author.php';
 class AuthorController extends Controller {
 
     protected $listTitle = 'Autoren';
-    protected $listView = 'Views/authors.php';
+    protected $showTitle = 'Autor';
 
     public function __construct() {
         $this->model = new Author;
+        parent::__construct();
     }
-
+/*
     public function show($id)
     {
         $title  = 'Autor';
         $author = $this->model->find($id, true);
         require_once 'Views/author.php';
     }
-
+*/
     public function edit($id = null)
     {
         

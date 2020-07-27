@@ -1,22 +1,22 @@
 <?php require_once 'inc/html_header.php'; ?>
 
-<?php if (isset($movie) && is_array($movie)) : ?>
+<?php if (isset($item) && is_array($item)) : ?>
     <table class="table table-striped">
         <tr>
             <th>ID:</th>
-            <td><?php echo $movie['id']; ?></td>
+            <td><?php echo $item['id']; ?></td>
         </tr>
         <tr>
             <th>Title:</th>
-            <td><?php echo $movie['title']; ?></td>
+            <td><?php echo $item['title']; ?></td>
         </tr>
         <tr>
             <th>Price:</th>
-            <td><?php echo $movie['price']; ?></td>
+            <td><?php echo $item['price']; ?></td>
         </tr>
         <tr>
             <th>Author:</th>
-            <td><?php echo $movie['author']['name']; ?></td>
+            <td><?php echo $item['author']['name']; ?></td>
         </tr>
     </table>
 <?php else : ?>
