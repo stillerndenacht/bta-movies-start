@@ -1,6 +1,6 @@
 <?php require_once 'inc/html_header.php'; ?>
 
-<?php if (isset($authors) && count($authors) > 0) : ?>
+<?php if (isset($list) && count($list) > 0) : ?>
     <table class="table table-striped">
         <tr>
             <th>ID</th>
@@ -10,7 +10,7 @@
                 <th colspan="2"><br></th>
             <?php endif; ?>
         </tr>
-        <?php foreach ($authors as $author): ?>
+        <?php foreach ($list as $author): ?>
             <tr>
                 <td><?php echo $author['id']; ?></td>
                 <td><?php echo $author['firstname']; ?></td>

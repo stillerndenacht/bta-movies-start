@@ -1,23 +1,15 @@
 <?php
 
+require_once 'Controller.php';
 require_once 'Models/Author.php';
 
-class AuthorController {
+class AuthorController extends Controller {
 
-    /**
-     * @var Author
-     */
-    private $model;
+    protected $listTitle = 'Autoren';
+    protected $listView = 'Views/authors.php';
 
     public function __construct() {
         $this->model = new Author;
-    }
-
-    public function index()
-    {
-        $title      = 'Autoren';
-        $authors    = $this->model->all();
-        require_once 'Views/authors.php';
     }
 
     public function show($id)
