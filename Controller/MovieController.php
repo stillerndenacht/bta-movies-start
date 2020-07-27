@@ -2,6 +2,7 @@
 
 require_once 'Controller.php';
 require_once 'Models/Movie.php';
+require_once 'Controller.php';
 
 class MovieController extends Controller {
 
