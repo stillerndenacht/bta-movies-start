@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // initialisiere variablen
 $id         = null;
@@ -18,7 +19,12 @@ if(isset($_GET['controller'])) {
             $controller = new AuthorController;
             break;
         case 'movies':
-            // @todo: implement movie logic 
+            require_once 'Controller/MovieController.php';
+            $controller = new MovieController;
+            break;
+        case 'user':
+            require_once 'Controller/UserController.php';
+            $controller = new UserController;
             break;
     }
 
@@ -26,6 +32,11 @@ if(isset($_GET['controller'])) {
     if( $controller && isset($_GET['action'])) {
         // name einer controller funktion
         $action = $_GET['action'];
+/*        
+        if($action === 'index') {
+            $controller->index();
+        } 
+*/        
 
         if( method_exists($controller, $action) ) {
             // zusätzlich wurde auch ein GET parameter 'id' gesetzt
@@ -40,7 +51,5 @@ if(isset($_GET['controller'])) {
         }
     }
 } else {
-    // oder mach sonstwas
-    // @todo: gebe hier die start page als home-page aus
-    echo 'Keine gültige Aktion!';
+    require_once 'Views/home.php';
 }
