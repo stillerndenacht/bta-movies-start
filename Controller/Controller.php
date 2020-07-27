@@ -6,14 +6,25 @@ class Controller {
     protected $listTitle = 'Allgemeiner Titel';
     protected $showTitle = 'Allgemeiner Show Titel';
 
+    private $viewKey;
+
+    public function __construct()
+    {
+        $this->viewKey = strtolower(get_class($this->model));
+    }
 
     public function index()
     {
-        $viewName = strtolower( get_class($this->model) );
         $title  = $this->listTitle;
         $list   = $this->model->all();
+        require_once 'Views/'. $this->viewKey . '/index.php';
+    }
 
-        require_once 'Views/'. $viewName . '/index.php';
+    public function show($id)
+    {
+        $title  = $this->showTitle;
+        $item = $this->model->find($id, true);
+        require_once 'Views/' . $this->viewKey . '/show.php';
     }
 
 }
