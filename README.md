@@ -5,6 +5,8 @@
 - 127.0.0.1	bta-movies-start.loc
 
 #### Apache -> httpd-vhosts.conf
+- Windows: C:\xampp\apache\conf\extra\httpd-vhosts.conf
+- Mac OSX: /Applications/XAMPP/etc/extra/httpd-vhosts.conf
 ```
 <VirtualHost *:80>
 	ServerName bta-movies-start.loc
@@ -15,10 +17,13 @@
 ```
 
 #### Apache -> httpd.conf überprüfen
+- Windows: C:\xampp\apache\conf\httpd.conf
+- Mac OSX: /Applications/XAMPP/etc/httpd.conf
 
 In der zentralen Konfigurations-Datei des Apache-Servers 'httpd.conf' bitte überprüfen,
 ob dort die httpd-vhosts.conf inkludiert wird. Folgende Zeile muß dort eingetragen sein:
 ```
 Include etc/extra/httpd-vhosts.conf
 ```
-
+Falls diese Zeile dort existiert und ein Rautezeichen (Zeichen für Kommentar-Zeile) davor steht, 
+dann entfernt es bitte. 

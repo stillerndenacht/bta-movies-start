@@ -15,8 +15,8 @@ class MovieController /** extends Controller */ {
 
     public function index()
     {
-        $title      = 'Movie';
-        $movies    = $this->model->all();
+        $title   = 'Movie';
+        $list    = $this->model->all();
         require_once 'Views/movies.php';
     }
 

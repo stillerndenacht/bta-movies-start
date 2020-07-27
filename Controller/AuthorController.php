@@ -1,20 +1,16 @@
 <?php
 
+require_once 'Controller.php';
 require_once 'Models/Author.php';
 require_once 'Controller.php';
 
 class AuthorController extends Controller {
 
+    protected $listTitle = 'Autoren';
+    protected $listView = 'Views/authors.php';
+
     public function __construct() {
         $this->model = new Author;
-    }
-
-    public function index()
-    {
-        # die(__METHOD__);
-        $title      = 'Autoren';
-        $authors    = $this->model->all();
-        require_once 'Views/authors.php';
     }
 
     public function show($id)
@@ -33,6 +29,14 @@ class AuthorController extends Controller {
         } else{
 
         }
+        $title = 'Edit Autor';
+        if( $id ) {
+            // existierender author
+            $data = $this->model->find($id);
+        } else {
+            // neuer author
+        }
+        require_once 'Views/Forms/author.php';
     }
 
 

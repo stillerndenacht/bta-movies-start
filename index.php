@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 // initialisiere variablen
 $id         = null;
 // name einer controller funktion
@@ -24,6 +25,10 @@ if(isset($_GET['controller'])) {
         case 'user':
             require_once 'Controller/UserController.php';
             $controller = new UserController; 
+            break;
+        case 'user':
+            require_once 'Controller/UserController.php';
+            $controller = new UserController;
             break;
     }
 
