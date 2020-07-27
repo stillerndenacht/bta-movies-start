@@ -43,7 +43,28 @@ class AuthorController extends Controller {
 
     public function store($id = null)
     {
-        die(__METHOD__ . ' ID: ' . ($id ?: 'null') );
+
+        $firstname  = $_POST['firstname'];
+        $lastname   = $_POST['lastname'];
+        
+        if($id > 0) {
+            $sql = 'UPDATE authors SET firstname = :firstname, lastname = :lastname 
+                WHERE id = :id';
+            $params = [
+                'firstname' => $firstname,
+                'lastname'  => $lastname,
+                'id'        => $id
+            ];
+            $stmt = $this->model->prepare($sql);
+            $stmt->execute($params);
+            header('location: /authors');
+        }else{
+            $params = [
+            'firstname'     => $firstname,
+            'lastname'      => $lastname,
+            ];
+        }
+
     }
 
     public function delete($id)
