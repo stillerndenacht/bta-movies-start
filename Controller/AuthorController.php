@@ -12,14 +12,7 @@ class AuthorController extends Controller {
         $this->model = new Author;
         parent::__construct();
     }
-/*
-    public function show($id)
-    {
-        $title  = 'Autor';
-        $author = $this->model->find($id, true);
-        require_once 'Views/author.php';
-    }
-*/
+
     public function edit($id = null)
     {
         $title = 'Edit Autor';
@@ -60,7 +53,6 @@ class AuthorController extends Controller {
 
     public function delete($id)
     {
-//        die(__METHOD__ . ' ID: ' . $id);
         $sql = "DELETE FROM authors WHERE id = ?";
         $stmt = $this->model->prepare($sql);
         $stmt->execute( [ $id ] );
