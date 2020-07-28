@@ -32,20 +32,19 @@
     </div>
 
     <div class="form-group row">
+        <label for="price" class="col-md-2 col-form-label">Preis</label>
+        <div class="col-md-10">
+            <input type="text" id="price" name="price" class="form-control col-sm-12 col-md-6 px-1" <?php if ($data) : ?> value="<?php echo $data['price'] ?>" <?php endif; ?> required />
+        </div>
+    </div>
+
+    <div class="form-group row">
         <label for="image" class="col-md-2 col-form-label">Bild <?php if ($data && $data['image']) : ?>(<?php echo $data['image'] ?>)<?php endif; ?></label>
         <div class="col-md-10">
             <input type="file" id="image" name="image" class="form-control col-sm-12 col-md-6 px-1" />
         </div>
     </div>
 
-    <div class="form-group row">
-        <label for="price" class="col-md-2 col-form-label">Bild</label>
-        <div class="col-md-10">
-            <input type="file" id="image" name="image" class="form-control col-sm-12 col-md-6 px-1" <? if($data) : ?> value=""  />
-        </div>
-    </div>
-
-    
     <div class="form-group row">
         <div class="col-md-auto float-right">
             <input type="submit" id="save" name="save" value="Save" role="button" class="btn btn-primary col-md-auto px-5" />
