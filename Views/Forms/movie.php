@@ -3,6 +3,17 @@
 <form method="post" class="" action="/movies/store<?php if ($id) : echo "/$id";
                                                     endif; ?>">
     <div class="form-group row">
+        <label for="author_id" class="col-md-2 col-form-label">Autor</label>
+        <div class="col-md-10">
+            <select id="author_id" name="author_id" class="form-control col-sm-12 col-md-6 px-1" <?php if ($data) : ?> value="<?php echo $data['author_id'] ?>" <?php endif; ?> required>
+                <option value="">Bitte wählen</option>
+                <option value="1">Autor 1</option>
+                <option value="2" selected>Autor 2</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
         <label for="title" class="col-md-2 col-form-label">Titel</label>
         <div class="col-md-10">
             <input type="text" id="title" name="title" class="form-control col-sm-12 col-md-6 px-1" <?php if ($data) : ?> value="<?php echo $data['title'] ?>" <?php endif; ?> required />

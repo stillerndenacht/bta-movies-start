@@ -2,22 +2,31 @@
 
 require_once 'Controller.php';
 require_once 'Models/Movie.php';
+require_once 'Models/Author.php';
 require_once 'Controller.php';
 
 class MovieController extends Controller {
 
     protected $listTitle = 'Movies';
     protected $showTitle = 'Movie';
+    protected $authors;
 
     public function __construct() {
         $this->model = new Movie;
+        
+        $author = new Author; 
+        $this->authors = $author->all();
+        
         parent::__construct();
     }
 
     public function edit($id = null)
     {
+
         $title = 'Edit Movie';
         $data  = null;
+        $authors = $this->authors;
+        
         if ($id > 0) {
             // existierendes movie
             $data = $this->model->find($id);
