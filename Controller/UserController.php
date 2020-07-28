@@ -14,6 +14,7 @@ class UserController {
         $this->model = new User;
     }
 
+
     public function login()
     {
         $title      = 'Login';
@@ -23,6 +24,12 @@ class UserController {
     public function check()
     {
         $user = $this->model->get($_POST['username'], $_POST['password']);
+        if ($user){
+            $_SESSION['auth'] = $user;
+            header('location: '.$this->redirectTo);
+        } else{
+            header('location: /login');
+        }
         if ($user) {
             // Login erfolgreich
             // wir bauen uns eine Session namens 'auth' und speichern darin $user
@@ -39,7 +46,9 @@ class UserController {
     {
         unset($_SESSION['auth']);
         session_destroy();
-        header('location: ' . $this->redirectTo);
+        header('location: '.$this->redirectTo);
+         
     }
 }
-?>
+
+?> 

@@ -3,6 +3,7 @@
 require_once 'Controller.php';
 require_once 'Models/Author.php';
 
+
 class AuthorController extends Controller {
 
     protected $listTitle = 'Autoren';
@@ -15,6 +16,13 @@ class AuthorController extends Controller {
 
     public function edit($id = null)
     {
+        
+        $title = 'Edit Author';
+        if($id){
+            $data = $this->model->find($id);
+        } else{
+
+        }
         $title = 'Edit Autor';
         $data  = null;
         if( $id > 0 ) {
@@ -23,6 +31,7 @@ class AuthorController extends Controller {
         } 
         require_once 'Views/Forms/author.php';
     }
+
 
     public function store($id = null)
     {
