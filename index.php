@@ -36,11 +36,6 @@ if(isset($_GET['controller'])) {
     if( $controller && isset($_GET['action'])) {
         // name einer controller funktion
         $action = $_GET['action'];
-/*        
-        if($action === 'index') {
-            $controller->index();
-        } 
-*/        
 
         if( method_exists($controller, $action) ) {
             // zusätzlich wurde auch ein GET parameter 'id' gesetzt

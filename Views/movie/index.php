@@ -1,12 +1,14 @@
 <?php require_once 'inc/html_header.php'; ?>
 
-<div>
-    <a href="/movies/edit" role="button" class="btn btn-primary mt-0 mb-3">Neuen Film anlegen</a>
-</div>
+<?php if (isset($_SESSION['auth'])) : ?>
+    <div>
+        <a href="/movies/edit" role="button" class="btn btn-primary mt-0 mb-3">Neuen Film anlegen</a>
+    </div>
+<?php endif; ?>
 
 <?php if (isset($list) && count($list) > 0) : ?>
-    <table class="table table-striped"> 
-        <tr>    
+    <table class="table table-striped">
+        <tr>
             <th>ID</th>
             <th>Title</th>
             <th>Price</th>

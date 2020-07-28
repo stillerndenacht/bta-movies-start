@@ -1,8 +1,10 @@
 <?php require_once 'inc/html_header.php'; ?>
 
-<div>
-    <a href="/authors/edit" role="button" class="btn btn-primary mt-0 mb-3">Neuen Autor anlegen</a>
-</div>
+<?php if (isset($_SESSION['auth'])) : ?>
+    <div>
+        <a href="/authors/edit" role="button" class="btn btn-primary mt-0 mb-3">Neuen Autor anlegen</a>
+    </div>
+<?php endif; ?>
 
 <?php if (isset($list) && count($list) > 0) : ?>
     <table class="table table-striped">
@@ -10,11 +12,11 @@
             <th>ID</th>
             <th>Vorname</th>
             <th>Nachname</th>
-            
+
             <?php if (isset($_SESSION['auth'])) : ?>
                 <th colspan="2"><br></th>
             <?php endif; ?>
-            
+
         </tr>
         <?php foreach ($list as $author) : ?>
             <tr>
