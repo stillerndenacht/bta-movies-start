@@ -58,8 +58,17 @@ class MovieController extends Controller {
             'author_id' => $author_id,
             'title'     => $title,
             'price'     => $price,
-            'image'     => $image,
         ];
+        if($image){
+            $params += ['image' => $image,
+        ];
+        }
+        $paramsKeys = array_keys($params);
+        $updateValues = [];
+        foreach($paramsKeys as $key){
+            $updateValues = "key = :$key";
+        }
+        
 
         if ($id > 0) {
             // movie existiert bereits

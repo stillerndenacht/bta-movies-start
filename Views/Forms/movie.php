@@ -11,7 +11,11 @@
                 <?php foreach ($authors as $author) : ?>
                     <?php if ($data && $data['author_id'] == $author['id']): ?>
                         <option selected value="<?php echo $author['id'];?>">
+<<<<<<< Updated upstream
                         <?php echo $author['firstname'] . " " . $author['lastname'] ;?>
+=======
+                            <?php echo $author['firstname'] . " " . $author['lastname'] ;?>
+>>>>>>> Stashed changes
                         </option>
                     <?php else:?>
                         <option value="<?php echo $author['id'];?>">
