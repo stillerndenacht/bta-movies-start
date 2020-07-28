@@ -7,8 +7,15 @@
         <div class="col-md-10">
             <select id="author_id" name="author_id" class="form-control col-sm-12 col-md-6 px-1" <?php if ($data) : ?> value="<?php echo $data['author_id'] ?>" <?php endif; ?> required>
                 <option value="">Bitte wählen</option>
-                <option value="1">Autor 1</option>
-                <option value="2" selected>Autor 2</option>
+                <?php foreach ($authors as $author) : ?>
+                    <?php if ($data && $data['author_id'] == $author['id']): ?>
+                        <option selected value="<?php echo $author['id'];?>"><?php echo $author['firstname'] . " " . $author['lastname'] ;?></option>
+                    <?php else:?>
+                        <option value="<?php echo $author['id'];?>"><?php echo $author['firstname'] . " " . $author['lastname'] ;?></option>
+                    <?php endif; ?>
+                        
+                <?php endforeach ?>;
+                     
             </select>
         </div>
     </div>
