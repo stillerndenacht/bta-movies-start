@@ -36,22 +36,25 @@ class MovieController extends Controller {
 
     public function store($id = null)
     {
+ 
         // wir speichern unsere formular daten in variablen
         $title  = $_POST['title'];
         $price  = $_POST['price'];
+        $author_id = $_POST['author_id'];
         // todo: server-seitige validierung der form daten 
         $params = [
-            'title' => $title,
-            'price' => $price
+            'title'     => $title,
+            'price'     => $price,
+            'author_id' => $author_id
         ];
         if ($id > 0) {
             // movie existiert bereits
             // füge den params die id als array element hinzu
             $params += ['id' => $id];
-            $sql = "UPDATE movies SET title = :title, price = :price WHERE id = :id";
+            $sql = "UPDATE movies SET title = :title, price = :price, author_id = :author_id WHERE id = :id";
         } else {
             // movie muss neu angelegt werden
-            $sql = "INSERT INTO movies (title, price) VALUES (:title , :price)";
+            $sql = "INSERT INTO movies (title, price, author_id) VALUES (:title , :price, :author_id)";
         }
 
         $stmt = $this->model->prepare($sql);
