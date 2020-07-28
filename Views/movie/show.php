@@ -18,6 +18,21 @@
             <th>Author:</th>
             <td><?php echo $item['author']['name']; ?></td>
         </tr>
+
+        <?php if ($item['image']) : ?>
+            <tr>
+                <th>Bild:</th>
+                <td>
+                    <img 
+                        src="/uploads/<?php echo trim($item['image']); ?>" 
+                        width="400" 
+                        title="<?php echo $item['image']; ?>" 
+                        alt="<?php echo $item['image']; ?>" 
+                    />
+                </td>
+
+            </tr>
+        <?php endif; ?>
     </table>
 <?php else : ?>
     <h3>Keine Daten vorhanden</h3>
