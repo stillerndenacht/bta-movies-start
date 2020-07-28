@@ -10,9 +10,11 @@
             <th>ID</th>
             <th>Title</th>
             <th>Price</th>
+
             <?php if (isset($_SESSION['auth'])) : ?>
                 <th colspan="2"><br></th>
             <?php endif; ?>
+
         </tr>
         <?php foreach ($list as $movie) : ?>
             <tr>

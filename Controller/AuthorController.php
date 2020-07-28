@@ -13,14 +13,7 @@ class AuthorController extends Controller {
         $this->model = new Author;
         parent::__construct();
     }
-/*
-    public function show($id)
-    {
-        $title  = 'Autor';
-        $author = $this->model->find($id, true);
-        require_once 'Views/author.php';
-    }
-*/
+
     public function edit($id = null)
     {
         
@@ -50,7 +43,7 @@ class AuthorController extends Controller {
             'firstname' => $firstname,
             'lastname'  => $lastname
         ];
-        if($id > 0 ) {
+        if( $id > 0 ) {
             // author existiert bereits
             // füge den params die id als array element hinzu
             $params += ['id' => $id];
@@ -71,8 +64,7 @@ class AuthorController extends Controller {
     {
         $sql = "DELETE FROM authors WHERE id = ?";
         $stmt = $this->model->prepare($sql);
-        $stmt->execute([$id]);
-        // todo: fehlerbehandlung
+        $stmt->execute( [ $id ] );
         // redirect zur listen ansicht
         header('location: /authors');
     }
