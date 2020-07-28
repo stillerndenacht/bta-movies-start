@@ -24,17 +24,59 @@ class MovieController extends Controller {
 */
     public function edit($id = null)
     {
-        die(__METHOD__ .' ID: ' . ($id ?: 'null') );
+        $title = 'Edit Movie';
+        if($id){
+            $data = $this->model->find($id);
+        } else{
+
+        }
+        $title = 'Edit Movie';
+        $data  = null;
+        if( $id > 0 ) {
+            // existierender author
+            $data = $this->model->find($id);
+        } 
+        require_once 'Views/Forms/movie.php';
     }
 
     public function store($id = null)
     {
-        die(__METHOD__ . ' ID: ' . ($id ?: 'null') );
+        // wir speichern unsere formular daten in variablen
+        $title  = $_POST['title'];
+        $price   = $_POST['price'];
+        // todo: server-seitige validierung der form daten 
+        $params = [
+            'title'     => $title,
+            'price'     => $price
+        ];
+        if($id > 0 ) {
+            // author existiert bereits
+            // füge den params die id als array element hinzu
+            $params += ['id' => $id];
+            $sql = "UPDATE movies SET title = :title, price = :price WHERE id = :id";
+        } else {
+            // author muss neu angelegt werden
+            $sql = "INSERT INTO movies (title, price) VALUES (:title , :price)";
+            }
+    
+        $stmt = $this->model->prepare($sql);
+        $stmt->execute($params);
+        $this->model->_handleErrors($stmt);
+        // todo: fehlerbehandlung
+        // redirect zur listen ansicht
+        header('location: /movies');
+        
     }
 
     public function delete($id)
     {
-        die(__METHOD__ . ' ID: ' . $id);
+        $sql = "DELETE FROM movies WHERE id = ?";
+        $stmt = $this->model->prepare($sql);
+        $stmt->execute([$id]);
+        // todo: fehlerbehandlung
+        // redirect zur listen ansicht
+        header('location: /movies');
     }
+    
 }
 ?>

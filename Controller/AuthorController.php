@@ -69,7 +69,12 @@ class AuthorController extends Controller {
 
     public function delete($id)
     {
-        die(__METHOD__ . ' ID: ' . $id);
+        $sql = "DELETE FROM authors WHERE id = ?";
+        $stmt = $this->model->prepare($sql);
+        $stmt->execute([$id]);
+        // todo: fehlerbehandlung
+        // redirect zur listen ansicht
+        header('location: /authors');
     }
 }
 ?>
