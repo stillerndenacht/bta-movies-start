@@ -22,7 +22,7 @@
                     
             </select>
         </div>
-    </div>hdh
+    </div>
 
     <div class="form-group row">
         <label for="title" class="col-md-2 col-form-label">Titel</label>
