@@ -30,6 +30,10 @@ if(isset($_GET['controller'])) {
             require_once 'Controller/UserController.php';
             $controller = new UserController;
             break;
+        case 'api':
+            require_once 'Controller/Api/ApiAuthorController.php';
+            $controller = new ApiAuthorController;
+            break;
     }
 
     // ein aktion wurde als GET parameter gesetzt
