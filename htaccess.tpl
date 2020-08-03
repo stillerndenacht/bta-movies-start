@@ -1,6 +1,10 @@
 
 RedirectPermanent /bta-movies-start http://bta-movies-start.loc
 
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
 RewriteEngine On
 RewriteRule  ^login$ index.php?controller=user&action=login
 RewriteRule  ^login/check$ index.php?controller=user&action=check
