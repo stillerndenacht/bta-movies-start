@@ -47,7 +47,21 @@ class Model extends MyDB {
 
     public function insert($params) 
     {
-
+        
+         $insertValues = [];
+        
+         foreach (array_keys($params) as $key) {
+             
+             $insertValues[] = "$key = :$key";
+         }
+        
+         $strInsertValues = implode(', ', $insertValues);
+         $sql = "INSERT movies SET $strInsertValues WHERE id = :id";
+         $stmt = $this->prepare($sql);
+         $params += ['id' => $id];
+         $result = $stmt->execute($params);
+         $this->_handleErrors($stmt);           
+         return $result;
     }
 }
 ?>
