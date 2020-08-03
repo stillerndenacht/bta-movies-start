@@ -20,6 +20,24 @@ class MovieController extends Controller {
         parent::__construct();
     }
 
+    public function index()
+    {
+        $selectedAuthor = null;
+
+        if(isset($_POST['author_id']) && $_POST['author_id'] > 0) {
+            $selectedAuthor = $_POST['author_id'];
+            $params = ['author_id' => $selectedAuthor];
+            $list = $this->model->where($params);
+        } else {
+            $list = $this->model->all();
+        }
+
+        $authors    = $this->authors;
+        $title      = 'Movies';
+        
+        require_once 'Views/movie/index.php';
+    }
+
     public function edit($id = null)
     
     {
