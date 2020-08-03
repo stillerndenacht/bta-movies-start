@@ -34,8 +34,12 @@ class MovieController extends Controller {
 
         $authors    = $this->authors;
         $title      = 'Movies';
-        
-        require_once 'Views/movie/index.php';
+
+        if (isset($_SESSION['auth'])) {
+            require_once 'Views/movie/admin/index.php';
+        } else {
+            require_once 'Views/movie/index.php';
+        }
     }
 
     public function edit($id = null)

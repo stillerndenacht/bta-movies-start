@@ -1,20 +1,14 @@
 <?php require_once 'inc/html_header.php'; ?>
 
-<?php if (isset($_SESSION['auth'])) : ?>
-    <div>
-        <a href="/movies/edit" role="button" class="btn btn-primary mt-0 mb-3">Neuen Film anlegen</a>
-    </div>
-<?php endif; ?>
-
 <?php if (isset($authors) && count($authors) > 0) : ?>
     <div class="float-right mr-4">
         <form id="frm" name="frm" method="post" action="/movies">
             <div class="form-group row">
                 <label for="author_id" class="col-form-label">Bei Autor</label>
                 <select
-                        class="ml-2"
-                        name="author_id"
-                        id="author_id" <?php if ($selectedAuthor) : ?>
+                    class="ml-2"
+                    name="author_id"
+                    id="author_id" <?php if ($selectedAuthor) : ?>
                     value="<?php echo $selectedAuthor; ?>"<?php endif; ?>
                 >
                     <option value="0">Alle</option>
@@ -35,21 +29,12 @@
             <th>ID</th>
             <th>Title</th>
             <th>Price</th>
-
-            <?php if (isset($_SESSION['auth'])) : ?>
-                <th colspan="2"><br></th>
-            <?php endif; ?>
-
         </tr>
         <?php foreach ($list as $movie) : ?>
             <tr>
                 <td><?php echo $movie['id']; ?></td>
                 <td><a href="/movies/<?php echo $movie['id']; ?>"><?php echo $movie['title']; ?></a></td>
                 <td><?php echo $movie['price']; ?></td>
-                <?php if (isset($_SESSION['auth'])) : ?>
-                    <td class="col-1"><a href="/movies/edit/<?php echo $movie['id']; ?>" class="btn-sm btn-primary" role="button">Edit</a></td>
-                    <td class="col-1"><a href="/movies/delete/<?php echo $movie['id']; ?>" class="btn-sm btn-danger delsoft" role="button">Delete</a></td>
-                <?php endif; ?>
             </tr>
         <?php endforeach; ?>
     </table>

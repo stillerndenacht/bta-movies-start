@@ -1,6 +1,8 @@
 <?php require_once 'inc/html_header.php'; ?>
 
-
+<div>
+    <a href="/movies/edit" role="button" class="btn btn-primary mt-0 mb-3">Neuen Film anlegen</a>
+</div>
 
 <?php if (isset($authors) && count($authors) > 0) : ?>
     <div class="float-right mr-4">
@@ -31,14 +33,15 @@
             <th>ID</th>
             <th>Title</th>
             <th>Price</th>
-
+            <th colspan="2"><br></th>
         </tr>
         <?php foreach ($list as $movie) : ?>
             <tr>
                 <td><?php echo $movie['id']; ?></td>
                 <td><a href="/movies/<?php echo $movie['id']; ?>"><?php echo $movie['title']; ?></a></td>
                 <td><?php echo $movie['price']; ?></td>
-                
+                <td class="col-1"><a href="/movies/edit/<?php echo $movie['id']; ?>" class="btn-sm btn-primary" role="button">Edit</a></td>
+                <td class="col-1"><a href="/movies/delete/<?php echo $movie['id']; ?>" class="btn-sm btn-danger delsoft" role="button">Delete</a></td>
             </tr>
         <?php endforeach; ?>
     </table>
