@@ -18,7 +18,12 @@ class Controller {
     {
         $title  = $this->listTitle;
         $list   = $this->model->all();
-        require_once 'Views/'. $this->viewKey . '/index.php';
+        
+        if(isset($_SESSION['auth'])) {
+            require_once 'Views/' . $this->viewKey . '/admin/index.php';
+        } else {
+            require_once 'Views/' . $this->viewKey . '/index.php';
+        }
     }
 
     public function show($id)

@@ -35,7 +35,7 @@ class MovieController extends Controller {
 
         $authors    = $this->authors;
         $title      = 'Movies';
-
+        
         require_once 'Views/movie/index.php';
     }
 
