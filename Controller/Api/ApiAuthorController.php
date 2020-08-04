@@ -22,7 +22,7 @@ class ApiAuthorController {
     }
 
     private function _response($data) {
-        sleep(1);
+        // sleep(1);
         header('Content-Type: application/json');
         header('Access-Control-Allow-Origin: *');
 
